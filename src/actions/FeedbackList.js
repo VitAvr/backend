@@ -27,13 +27,13 @@ export default function FeedbackList() {
     }, []);
     //
     const getAllFeedback = async () => {
-        const response = await axios.get(`http://localhost:5000/feedback/auth/allfeedback`);
+        const response = await axios.get(`https://git.heroku.com/frontend1k.gitfeedback/auth/allfeedback`);
         setFeedback(response.data);
     };
     //
     const deleteFeedback = async (id) => {
         if (window.confirm('Delete record #' + id + '?')) {
-            await axios.delete(`http://localhost:5000/feedback/delete/${id}`);
+            await axios.delete(`https://git.heroku.com/frontend1k.gitfeedback/delete/${id}`);
             getAllFeedback();
         }
     };

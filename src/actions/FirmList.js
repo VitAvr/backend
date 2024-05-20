@@ -29,13 +29,13 @@ export default function FirmList() {
     }, []);
     //
     const getFirms = async () => {
-        const response = await axios.get(`http://localhost:5000/firms`);
+        const response = await axios.get(`https://git.heroku.com/frontend1k.gitfirms`);
         setFirms(response.data);
     };
     //
     const deleteFirm = async (id) => {
         if (window.confirm('Delete record #' + id + '?')) {
-            await axios.delete(`http://localhost:5000/firms/delete/${id}`);
+            await axios.delete(`https://git.heroku.com/frontend1k.gitfirms/delete/${id}`);
             getFirms();
         }
     };

@@ -14,7 +14,7 @@ export default function FirmPost({ cityId, searchValue }) {
         //
         
         const getFirms = async () => {
-            const response = await axios.get(`http://localhost:5000/firms`);
+            const response = await axios.get(`https://git.heroku.com/frontend1k.gitfirms`);
             setFirms(response.data);
             setFirmCount(response.data.length)
         };

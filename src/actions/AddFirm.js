@@ -43,7 +43,7 @@ export default function AddFirm() {
     const saveFirm = async (e) => {
         e.preventDefault();
         try {
-            await axios.post(`http://localhost:5000/firms/add`, {
+            await axios.post(`https://git.heroku.com/frontend1k.gitfirms/add`, {
                 name: name,
                 description: description,
                 link: link,
@@ -54,7 +54,7 @@ export default function AddFirm() {
             //-- upload image server
             // let formData = new FormData();
             // formData.append('file', image.data);
-            // await fetch(`http://localhost:5000/image`, {
+            // await fetch(`https://git.heroku.com/frontend1k.gitimage`, {
             //     method: 'POST',
             //     body: formData,
             // });

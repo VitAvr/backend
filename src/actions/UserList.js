@@ -28,13 +28,13 @@ export default function UsersList() {
     }, []);
     //
     const getUsers = async () => {
-        const response = await axios.get(`http://localhost:5000/users/auth/allusers`);
+        const response = await axios.get(`https://git.heroku.com/frontend1k.gitusers/auth/allusers`);
         setUsers(response.data);
     };
     //
     const deleteUser = async (id) => {
         if (window.confirm('Вы действительно хотите удалить #' + id + '?')) {
-            await axios.delete(`http://localhost:5000/users/delete/${id}`);
+            await axios.delete(`https://git.heroku.com/frontend1k.gitusers/delete/${id}`);
             getUsers();
         }
     };

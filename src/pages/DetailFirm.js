@@ -33,7 +33,7 @@ export default function DetailFirm() {
 
     const getFirmById = async () => {
         try {
-            const response = await axios.get(`http://localhost:5000/firms/${id}`);
+            const response = await axios.get(`https://git.heroku.com/frontend1k.gitfirms/${id}`);
             console.log('Response data:', response.data);
             setFirm(response.data);
             setUser(response.data.user);
@@ -44,7 +44,7 @@ export default function DetailFirm() {
 
     const getCommentByFirmId = async () => {
         try {
-            const response = await axios.get(`http://localhost:5000/comments/${id}`);
+            const response = await axios.get(`https://git.heroku.com/frontend1k.gitcomments/${id}`);
             setComments(response.data);
         } catch (error) {
             console.error('Ошибка чтения комментариев:', error.message);
@@ -77,7 +77,7 @@ export default function DetailFirm() {
         //  userId: userId,
       // });
         try {
-            await axios.post(`http://localhost:5000/comments`, {
+            await axios.post(`https://git.heroku.com/frontend1k.gitcomments`, {
                 text: newComment,
                 firmId: id,
                 userId: userId,
@@ -92,7 +92,7 @@ export default function DetailFirm() {
     const deleteComment = async (id) => {
       if (window.confirm('Вы действительно хотите удалить комментарий?')) {
         try {
-          await axios.delete(`http://localhost:5000/comments/${id}`);
+          await axios.delete(`https://git.heroku.com/frontend1k.gitcomments/${id}`);
           getCommentByFirmId();
         } catch (error) {
           console.error('Error deleting comment:', error.message);

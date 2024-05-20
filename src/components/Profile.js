@@ -13,7 +13,7 @@ export default function Profile() {
          try {
             const token = localStorage.getItem('token');
             const response = await axios.get(
-               'http://localhost:5000/users/auth/me',
+               'https://git.heroku.com/frontend1k.gitusers/auth/me',
                {
                   headers: {
                      Authorization: `Bearer ${token}`,
@@ -35,7 +35,7 @@ export default function Profile() {
       try {
          const token = localStorage.getItem('token');
          const response = await axios.patch(
-            `http://localhost:5000/users/update/${user.userId}`,
+            `https://git.heroku.com/frontend1k.gitusers/update/${user.userId}`,
             {
                name,
                password,

@@ -34,7 +34,7 @@ export default function AddPost() {
     const createFeedback = async (e) => {
         e.preventDefault();
         try {
-            await axios.post(`http://localhost:5000/feedback/create`, {
+            await axios.post(`https://git.heroku.com/frontend1k.gitfeedback/create`, {
                 text: text,
                 userId: userId,
             });

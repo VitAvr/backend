@@ -30,7 +30,7 @@ export default function EditFirm() {
     React.useEffect(() => {
         //------post by id
         const getFirmById = async () => {
-            const response = await axios.get(`http://localhost:5000/firms/${id}`);
+            const response = await axios.get(`https://git.heroku.com/frontend1k.gitfirms/${id}`);
             setName(response.data.name);
             setDescription(response.data.description);
             setLogoUrl(response.data.logoUrl);
@@ -44,7 +44,7 @@ export default function EditFirm() {
     //-------
     const updateFirm = async (e) => {
         e.preventDefault();
-        await axios.patch(`http://localhost:5000/firms/edit/${id}`, {
+        await axios.patch(`https://git.heroku.com/frontend1k.gitfirms/edit/${id}`, {
             name: name,
             description: description,
             link: link,
@@ -55,7 +55,7 @@ export default function EditFirm() {
         //----------upload image server
         // let formData = new FormData();
         // formData.append('file', image.data);
-        // await fetch(`http://localhost:5000/image`, {
+        // await fetch(`https://git.heroku.com/frontend1k.gitimage`, {
         //     method: 'POST',
         //     body: formData,
         // });
