@@ -43,7 +43,7 @@ export default function AddFirm() {
     const saveFirm = async (e) => {
         e.preventDefault();
         try {
-            await axios.post(`https://git.heroku.com/frontend1k.gitfirms/add`, {
+            await axios.post(`https://backend1k-36eab103aeb1.herokuapp.com/firms/add`, {
                 name: name,
                 description: description,
                 link: link,
