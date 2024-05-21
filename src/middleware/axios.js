@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 const instance = axios.create({
-    baseURL: 'https://git.heroku.com/frontend1k.git',
+    baseURL: 'https://backend1k-36eab103aeb1.herokuapp.com/',
 });
 //
 //
