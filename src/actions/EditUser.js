@@ -35,7 +35,7 @@ useEffect(() => {
     React.useEffect(() => {
         //------post by id
         const getUserById = async () => {
-            const response = await axios.get(`https://git.heroku.com/frontend1k.gitusers/auth/${id}`);
+            const response = await axios.get(`https://backend1k-36eab103aeb1.herokuapp.com/users/auth/${id}`);
             setName(response.data.name);
             
         };
@@ -44,7 +44,7 @@ useEffect(() => {
     //-------
     const updateUserById = async (e) => {
         e.preventDefault();
-        await axios.patch(`https://git.heroku.com/frontend1k.gitusers/auth/edit/${id}`, {
+        await axios.patch(`https://backend1k-36eab103aeb1.herokuapp.com/users/auth/edit/${id}`, {
             name: name,
             id: id,
         });
