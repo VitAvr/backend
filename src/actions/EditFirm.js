@@ -30,7 +30,7 @@ export default function EditFirm() {
     React.useEffect(() => {
         //------post by id
         const getFirmById = async () => {
-            const response = await axios.get(`https://git.heroku.com/frontend1k.gitfirms/${id}`);
+            const response = await axios.get(`https://backend1k-36eab103aeb1.herokuapp.com/firms/${id}`);
             setName(response.data.name);
             setDescription(response.data.description);
             setLogoUrl(response.data.logoUrl);
@@ -44,7 +44,7 @@ export default function EditFirm() {
     //-------
     const updateFirm = async (e) => {
         e.preventDefault();
-        await axios.patch(`https://git.heroku.com/frontend1k.gitfirms/edit/${id}`, {
+        await axios.patch(`https://backend1k-36eab103aeb1.herokuapp.com/firms/edit/${id}`, {
             name: name,
             description: description,
             link: link,
