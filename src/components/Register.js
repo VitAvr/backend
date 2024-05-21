@@ -14,7 +14,7 @@ export default function Register() {
     const RegisterSubmit = async (e) => {
         e.preventDefault();
         try {
-            await axios.post(`https://git.heroku.com/frontend1k.gitusers/auth/register`, {
+            await axios.post(`https://backend1k-36eab103aeb1.herokuapp.com/users/auth/register`, {
                 name: name,
                 email: email,
                 password: password,
