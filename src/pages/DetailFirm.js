@@ -13,7 +13,6 @@ export default function DetailFirm() {
     const [name, setName] = React.useState('');
     const [comments, setComments] = React.useState('');
     const [userId, setUserId] = React.useState('');
-    const [newComment, setNewComment] = React.useState('');
     const { id } = useParams();
 
     const getMe = async () => {
@@ -33,7 +32,7 @@ export default function DetailFirm() {
 
     const getFirmById = async () => {
         try {
-            const response = await axios.get(`https://git.heroku.com/frontend1k.gitfirms/${id}`);
+            const response = await axios.get(`https://backend1k-36eab103aeb1.herokuapp.com/firms/${id}`);
             console.log('Response data:', response.data);
             setFirm(response.data);
             setUser(response.data.user);
@@ -42,63 +41,6 @@ export default function DetailFirm() {
         }
     };
 
-    const getCommentByFirmId = async () => {
-        try {
-            const response = await axios.get(`https://git.heroku.com/frontend1k.gitcomments/${id}`);
-            setComments(response.data);
-        } catch (error) {
-            console.error('Ошибка чтения комментариев:', error.message);
-        }
-    };
-    React.useEffect(() => {
-        getMe();
-        getFirmById();
-        getCommentByFirmId();
-    }, [id]);
-
-    const saveComment = async (e) => {
-        e.preventDefault();
-        // Проверяем, что содержание комментария не пустое
-      if (!newComment.trim()) {
-        alert('Комментарий не может быть пустым');
-        return;
-      }
-  
-      // Проверяем, что комментарий не содержит ссылок
-      const urlRegex = /(https?:\/\/[^\s]+)/g;
-      if (urlRegex.test(newComment)) {
-        alert('Комментарий не может содержать ссылки');
-        return;
-      }
-        // Выводим данные перед отправкой запроса
-        //console.log("Данные для отправки:", {
-        //  body_text: newComment,
-        //  postId: id,
-        //  userId: userId,
-      // });
-        try {
-            await axios.post(`https://git.heroku.com/frontend1k.gitcomments`, {
-                text: newComment,
-                firmId: id,
-                userId: userId,
-            });
-            
-        } catch (error) {
-          console.log()
-            console.error('Ошибка в добавлении комментария:', error.message);
-        }
-    };
-    //удалить комментарий
-    const deleteComment = async (id) => {
-      if (window.confirm('Вы действительно хотите удалить комментарий?')) {
-        try {
-          await axios.delete(`https://git.heroku.com/frontend1k.gitcomments/${id}`);
-          getCommentByFirmId();
-        } catch (error) {
-          console.error('Error deleting comment:', error.message);
-        }
-      }
-    };
 
     return (
         <Container className="mt-1">
