@@ -50,7 +50,7 @@ export default function FirmPost({ cityId, searchValue }) {
                             <a href={data.link} target='_blank'>{data.link}</a>
                             
                         </p>
-                        <Link to={`/firms/${data.id}`} className="me-1">
+                        <Link to={`/detailfirm/${data.id}`} className="me-1">
                             Подробнее
                         </Link>
                     </Col>
