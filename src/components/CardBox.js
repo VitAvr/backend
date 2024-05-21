@@ -16,7 +16,7 @@ export default function CardBox({ cityId }) {
         //
         
         const getFirms = async () => {
-            const response = await axios.get(`https://git.heroku.com/frontend1k.gitfirms`);
+            const response = await axios.get(`https://backend1k-36eab103aeb1.herokuapp.com/firms`);
             setFirms(response.data);
 
         };
