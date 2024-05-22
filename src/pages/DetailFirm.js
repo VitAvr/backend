@@ -2,8 +2,6 @@ import React from 'react';
 import { Container, Row, Col, Button, Form } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
-import { useParams } from 'react-router-dom';
-import moment from 'moment';
 import { jwtDecode } from 'jwt-decode';
 
 
@@ -11,10 +9,14 @@ export default function DetailFirm() {
     const [firm, setFirm] = React.useState('');
     const [user, setUser] = React.useState('');
     const [name, setName] = React.useState('');
-    const [comments, setComments] = React.useState('');
     const [userId, setUserId] = React.useState('');
     const { id } = useParams();
 
+    useEffect(() => {
+        getMe();
+        getFirmById();
+    }, []);
+    
     const getMe = async () => {
         try {
             const token = localStorage.getItem('token');
@@ -33,9 +35,10 @@ export default function DetailFirm() {
     const getFirmById = async () => {
         try {
             const response = await axios.get(`https://backend1k-36eab103aeb1.herokuapp.com/firms/${id}`);
-            console.log('Response data:', response.data);
-            setFirm(response.data);
-            setUser(response.data.user);
+            const firmData = response.data.map.data;
+            console.log('Response data:', firmData);
+            setFirm(firmData);
+            setUser(firmData.user);
         } catch (error) {
             console.error('Ошибка чтения данных:', error.message);
         }
