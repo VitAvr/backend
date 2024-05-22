@@ -1,13 +1,13 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { Container, Row, Col, Button, Form } from 'react-bootstrap';
-import { Link } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
 import axios from 'axios';
 import { jwtDecode } from 'jwt-decode';
 
 
 export default function DetailFirm() {
-    const [firm, setFirm] = React.useState('');
-    const [user, setUser] = React.useState('');
+    const [firm, setFirm] = React.useState({});
+    const [user, setUser] = React.useState({});
     const [name, setName] = React.useState('');
     const [userId, setUserId] = React.useState('');
     const { id } = useParams();
@@ -26,9 +26,7 @@ export default function DetailFirm() {
                 setUserId(decoded.userId);
             }
         } catch (error) {
-            if (error.response) {
-                console.error('Ошибка проверки данных пользователя:',error.message);
-            }
+            console.error('Ошибка проверки данных пользователя:',error.message);
         }
     };
 
@@ -51,14 +49,14 @@ export default function DetailFirm() {
             <Row className="m-2" key={firm.id}>
                 <Col md="3">
                     <img className="mr-3 img-thumbnail" 
-                    src={firm.logoUrl} 
+                    src={firm.logoUrl || ''} 
                     alt="Логотип" />
                 </Col>
                 <Col md="9">
                         <p>{firm.description}</p>
                         <p>
                             <span className="fst-italic">Ссылка на сайт: </span> 
-                            <a href={firm.link} target='_blank'>{firm.link}</a>                            
+                            <a href={firm.link || '#'} target='_blank' rel="noopener noreferrer">{firm.link}</a>                            
                         </p>
                         <p>Города: {firm.cities}</p>
                         <p>Изучаемые языки: {firm.languages}</p>                        
