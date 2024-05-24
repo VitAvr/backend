@@ -53,7 +53,7 @@ export default function UsersList() {
                      </tr>
                   </thead>
                   <tbody>
-                     {users.map((users) => (
+                     {users.map((users, index) => (
                         <tr key={users.id}>
                            <td>
                               {index +1}
