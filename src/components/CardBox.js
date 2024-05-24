@@ -54,7 +54,7 @@ export default function CardBox({ cityId }) {
                     <h2 className="mt-5 text-center">Основные фирмы предоставляющие языковые курсы</h2>
                     <Row xs={1} md={2} className="g-4">
 
-                        {firms.map((data) => (
+                        {firms.slice(0, 2).map((data) => (
                             <Col>
                                 <Card className="m-2" key={data.id}>
                                     <Card.Img className="mr-3 img-thumbnail" src={data.logoUrl} alt="Logo" style={{ height: 204 }} />
