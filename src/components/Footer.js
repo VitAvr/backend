@@ -1,11 +1,13 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import { Container } from 'react-bootstrap';
+import React, {Component} from "react";
+import { Container } from "react-bootstrap";
 
-class Footer extends React.Component {
+export default class Footer extends Component {
     render() {
         return (
-            <footer
+            <footer className="footer mt-auto pt-3">
+                <Container
+                className="text-center"
+                fluid
                 style={{
                     backgroundColor: '#bb240e',
                     color: '#fff',
@@ -13,11 +15,8 @@ class Footer extends React.Component {
                     position: 'relative',
                     marginTop: '60px',
                     padding: '10px',
-                    textAlign: 'center',
-                    width: '100%'
                 }}
-            >
-                <Container fluid>
+                >
                     <p>Design &copy; 2024 | LFA | Vitalii Avramenko | JKTV22</p>
                 </Container>
             </footer>
