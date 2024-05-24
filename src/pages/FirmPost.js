@@ -5,7 +5,7 @@ import { useState, useEffect } from 'react';
 import axios from 'axios';
 import moment from 'moment';
 
-//
+const DEFAULT_IMAGE_URL = 'https://t4.ftcdn.net/jpg/04/73/25/49/360_F_473254957_bxG9yf4ly7OBO5I0O5KABlN930GwaMQz.jpg';
 
 export default function FirmPost({ cityId, searchValue }) {
     const [firms, setFirms] = useState([]);
@@ -40,7 +40,7 @@ export default function FirmPost({ cityId, searchValue }) {
             .map((data) => (
                 <Row className="m-2" key={data.id}>
                     <Col md="3">
-                        <img className="mr-3 img-thumbnail" src={data.logoUrl} alt="Logo" />
+                        <img className="mr-3 img-thumbnail" src={data.logoUrl || DEFAULT_IMAGE_URL} alt="Logo" />
                     </Col>
                     <Col md="9">
                         <h5>{data.name}</h5>
