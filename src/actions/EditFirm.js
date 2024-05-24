@@ -4,11 +4,12 @@ import axios from '../middleware/axios';
 import { useNavigate, useParams, } from 'react-router-dom';
 import { jwtDecode } from 'jwt-decode';
 
+const DEFAULT_LOGO_URL = 'https://t4.ftcdn.net/jpg/04/73/25/49/360_F_473254957_bxG9yf4ly7OBO5I0O5KABlN930GwaMQz.jpg';
+
 export default function EditFirm() {
     //----------
     const [name, setName] = React.useState('');
     const [description, setDescription] = React.useState('');
-    const [oldUrl, setOldUrl] = React.useState('');
     const [logoUrl, setLogoUrl] = React.useState('');
     const [link, setlink] = React.useState('');
     const [cities, setCities] = React.useState('');
@@ -34,7 +35,6 @@ export default function EditFirm() {
             setName(response.data.name);
             setDescription(response.data.description);
             setLogoUrl(response.data.logoUrl);
-            setOldUrl(response.data.oldUrl);
             setlink(response.data.link);
             setCities(response.data.cities);
             setLanguages(response.data.languages);
@@ -44,13 +44,15 @@ export default function EditFirm() {
     //-------
     const updateFirm = async (e) => {
         e.preventDefault();
+        const updatedLogoUrl = image.data ? URL.createObjectURL(image.data) : DEFAULT_LOGO_URL;
+        
         await axios.patch(`https://backend1k-36eab103aeb1.herokuapp.com/firms/edit/${id}`, {
-            name: name,
-            description: description,
-            link: link,
-            logoUrl: logoUrl,
-            cities: cities,
-            languages: languages,
+             name,
+            description,
+            link,
+            logoUrl: updatedLogoUrl,
+            cities,
+            languages,
         });
         //----------upload image server
         // let formData = new FormData();
