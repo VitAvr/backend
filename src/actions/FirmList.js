@@ -33,8 +33,8 @@ export default function FirmList() {
         setFirms(response.data);
     };
     //
-    const deleteFirm = async (id) => {
-        if (window.confirm('Удалить фирму #' + id + '?')) {
+    const deleteFirm = async (id, name) => {
+        if (window.confirm('Удалить фирму #' + name + '?')) {
             await axios.delete(`https://backend1k-36eab103aeb1.herokuapp.com/firms/delete/${id}`);
             getFirms();
         }
