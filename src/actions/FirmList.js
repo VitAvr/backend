@@ -34,7 +34,7 @@ export default function FirmList() {
     };
     //
     const deleteFirm = async (id) => {
-        if (window.confirm('Delete record #' + id + '?')) {
+        if (window.confirm('Удалить фирму #' + id + '?')) {
             await axios.delete(`https://backend1k-36eab103aeb1.herokuapp.com/firms/delete/${id}`);
             getFirms();
         }
@@ -69,7 +69,7 @@ export default function FirmList() {
                      {firms.map((firm, index) => (
                         <tr key={firm.id}>
                            <td>
-                              {index + 1}. #{firm.id}
+                              {index + 1}
                            </td>
                            <td>{firm.name}</td>
                            <td className="text-center">
