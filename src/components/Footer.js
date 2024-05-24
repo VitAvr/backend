@@ -15,6 +15,7 @@ export default class Footer extends Component {
                     position: 'relative',
                     marginTop: '60px',
                     padding: '10px',
+                    flex: 1;
                 }}
                 >
                     <p>Design &copy; 2024 | LFA | Vitalii Avramenko | JKTV22</p>
