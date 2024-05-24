@@ -5,7 +5,7 @@ import { useNavigate } from 'react-router-dom';
 export default function Logout() {
     const navigate = useNavigate();
     const onClickLogout = () => {
-        if (window.confirm('Are you sure want to log')) {
+        if (window.confirm('Вы уверены что хотите выйти?')) {
             //
             window.localStorage.removeItem('token');
             navigate('/');
