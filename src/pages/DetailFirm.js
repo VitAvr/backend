@@ -46,27 +46,27 @@ export default function DetailFirm() {
     return (
         <Container className="mt-1">
         { /*Firm.name */ }
-            <h2 className="text-center m-4"> Фирма "{firmData.name}"</h2>
+            <h2 className="text-center m-4"> Фирма "{firm.name}"</h2>
         { /*Firm.id */ }
-            <Row className="m-2" key={firmData.id}>
+            <Row className="m-2" key={firm.id}>
                 { /*Firm.logoUrl */ }
                 <Col md="3">
                     <img className="mr-3 img-thumbnail" 
-                    src={firmData.logoUrl || ''} 
+                    src={firm.logoUrl || ''} 
                     alt="Логотип" />
                 </Col>
                 <Col md="9">
                         { /*Firm.description */ }
-                        <p>{firmData.description}</p>
+                        <p>{firm.description}</p>
                         { /*Firm.link */ }
                         <p>
                             <span className="fst-italic">Ссылка на сайт: </span> 
-                            <a href={firmData.link || '#'} target='_blank' rel="noopener noreferrer">{firmData.link}</a>                            
+                            <a href={firm.link || '#'} target='_blank' rel="noopener noreferrer">{firm.link}</a>                            
                         </p>
                             { /*Firm.cities */ }
-                        <p>Города: {firmData.cities}</p>
+                        <p>Города: {firm.cities}</p>
                             { /*Firm.languages */ }
-                        <p>Изучаемые языки: {firmData.languages}</p>                        
+                        <p>Изучаемые языки: {firm.languages}</p>                        
                     <Link to={`/firms`} className="me-1">
                         Вернуться к списку фирм
                     </Link>
