@@ -32,8 +32,8 @@ export default function UsersList() {
         setUsers(response.data);
     };
     //
-    const deleteUser = async (id) => {
-        if (window.confirm('Вы действительно хотите удалить #' + id + '?')) {
+    const deleteUser = async (id, name) => {
+        if (window.confirm('Вы действительно хотите удалить #' + name + '?')) {
             await axios.delete(`https://backend1k-36eab103aeb1.herokuapp.com/users/delete/${id}`);
             getUsers();
         }
@@ -56,7 +56,7 @@ export default function UsersList() {
                      {users.map((users) => (
                         <tr key={users.id}>
                            <td>
-                              {users.id}
+                              {index +1}
                            </td>
                            <td>{users.name}</td>
                            <td className="text-center">
