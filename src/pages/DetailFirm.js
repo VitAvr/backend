@@ -45,7 +45,7 @@ export default function DetailFirm() {
 
     return (
         <>
-        {firm.filter((data) => data.name.toLowerCase().includes(searchValue.toLowerCace())).map((data) => (
+        {firm.map((data) => (
         <Container className="mt-1">
         { /*Firm.name */ }
             <h2 className="text-center m-4"> Фирма "{data.name}"</h2>
