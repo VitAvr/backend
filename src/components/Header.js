@@ -129,7 +129,7 @@ export default function Header() {
                               {user && (
                                  <>
                                     <Image
-                                       src={avatar}
+                                       src={avatar || 'https://static.thenounproject.com/png/55393-200.png'}
                                        style={{
                                           width: 30,
                                           height: 30,
