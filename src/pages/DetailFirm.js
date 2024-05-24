@@ -32,7 +32,7 @@ export default function DetailFirm() {
 
     const getFirmById = async () => {
         try {
-            const response = await axios.get(`https://backend1k-36eab103aeb1.herokuapp.com/firms/${id}`);
+            const response = await axios.get(`https://frontend1k-34b498e2dffc.herokuapp.com/firms/${id}`);
             const firmData = response.data.map.data;
             console.log('Response data:', firmData);
             setFirm(firmData);
