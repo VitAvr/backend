@@ -44,7 +44,7 @@ useEffect(() => {
     //-------
     const updateUserById = async (e) => {
         e.preventDefault();
-        await axios.patch(`https://backend1k-36eab103aeb1.herokuapp.com/users/auth/edit/${id}`, {
+        await axios.patch(`https://backend1k-36eab103aeb1.herokuapp.com/users/auth/update/${id}`, {
             name: name,
             id: id,
         });
