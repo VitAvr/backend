@@ -44,7 +44,7 @@ export default function EditFirm() {
     //-------
     const updateFirm = async (e) => {
         e.preventDefault();
-        const updatedLogoUrl = image.data ? URL.createObjectURL(image.data);
+        const updatedLogoUrl = image.data ? URL.createObjectURL(image.data) : DEFAULT_LOGO_URL;
         
         await axios.patch(`https://backend1k-36eab103aeb1.herokuapp.com/firms/edit/${id}`, {
              name,
